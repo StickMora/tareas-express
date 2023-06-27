@@ -3,11 +3,9 @@ const app = express();
 const port = 3000;
 
 const tareas = [
-    {
-        id: '123456',
-        isCompleted: false,
-        description: 'Walk the dog'
-    }
+{ id: 1, description: 'Estudiar Express', completed: false },
+  { id: 2, description: 'Asistir a clase de ingles', completed: true },
+  { id: 3, description: 'Estudiar para el examen', completed: false }
 ];
 app.get('/', (req, res) => {
     res.send(tareas);
