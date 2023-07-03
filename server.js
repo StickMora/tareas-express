@@ -2,15 +2,14 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
-const tareas = [
-{ id: 1, description: 'Estudiar Express', completed: false },
-  { id: 2, description: 'Asistir a clase de ingles', completed: true },
-  { id: 3, description: 'Estudiar para el examen', completed: false }
-];
-app.get('/', (req, res) => {
-    res.send(tareas);
-});
+const listViewRouter = require('./list-view-router');
+const listEditRouter = require('./list-edit-router');
+
+app.use(express.json());
+
+app.use('/list-view', listViewRouter);
+app.use('/list-edit', listEditRouter);
 
 app.listen(port, () => {
-    console.log('Servidor iniciado en el puerto 3000');
+  console.log('Servidor iniciado en el puerto 3000');
 });
